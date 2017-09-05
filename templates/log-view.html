@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block stylesheet %}
+{% endblock %}
+{% block page_head %}
+            <!-- page head start-->
+            <div class="page-head">
+                <h3 class="m-b-less">
+                    日志查看系统
+                </h3>
+                <!--<span class="sub-title">Welcome to Static Table</span>-->
+                <div class="state-information">
+                    <ol class="breadcrumb m-b-less bg-less">
+                        <li><a href="{{ url_for('logview.log_view') }}">日志查看</a></li>
+                        <li class="active"><a href="#">日志列表</a></li>
+                        <li><a href="">首页</a></li>
+                    </ol>
+                </div>
+            </div>
+            <!-- page head end-->
+{% endblock %}
+
+{% block main_content %}
+    <!-- wrapper -start -->
+    <div class="wrapper">
+    <div class="row">
+        <div class="col-sm-2">
+            <section class="panel">
+                    <div>
+                        <form class="form-horizontal tasi-form" method="get">
+                            <div class="form-group">
+                                   <select class="form-control m-b-12">
+                                        {% for item in itams2 %}
+                                        <option class="item.id"> {{ item.Envname }}</option>
+                                        {% endfor %}
+                                    </select>
+                            </div>
+                    </div>
+            </section>
+        </div>
+        <div class="col-sm-2 col-xs-offset-1">
+                            <div class="form-group">
+                                    <select class="form-control m-b-12">
+                                        {% for item in items %}
+                                        <option class="items.id"> {{ item.Hostname }}</option>
+                                        {% endfor %}
+                                    </select>
+                            </div>
+        </div>
+        <div class="col-sm-2 col-xs-offset-1">
+                            <div class="form-group">
+                                    <select class="form-control m-b-12">
+                                        <option>Option 1</option>
+                                        <option>Option 2</option>
+                                        <option>Option 3</option>
+                                    </select>
+                            </div>
+
+                        </form>
+        </div>
+    </div>
+    </div>
+    <!-- wrapper end -->
+{% endblock %}
+{% block scripts %}
+{% endblock %}

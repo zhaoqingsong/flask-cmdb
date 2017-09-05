@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% block stylesheet %}
+{% endblock %}
+{% block page_head %}
+    <!-- page head start-->
+            <div class="page-head">
+                <h3 class="m-b-less">
+                    添加主机
+                </h3>
+                <!--<span class="sub-title">Welcome to Static Table</span>-->
+                <div class="state-information">
+                    <ol class="breadcrumb m-b-less bg-less">
+                        <li><a href="{{ url_for('hostadmin.add_host') }}">添加主机</a></li>
+                        <li class="active"><a href="#">固定资产</a></li>
+                        <li><a href="">首页</a></li>
+                    </ol>
+                </div>
+            </div>
+            <!-- page head end-->
+{% endblock %}
+{% block main_content %}
+     <!--body wrapper start-->
+    <div class="wrapper">
+            <div class="row">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            添加主机信息
+                        </header>
+                        <div class="panel-body">
+                            <form role="form" action="{{ url_for('hostadmin.add_host') }}" enctype="multipart/form-data" method="post">
+                                <div class="form-group">
+                                    <label for="Hostname" class="col-lg-10 col-sm-2 control-label">主机名</label>
+                                    <div class="col-lg-4">
+                                        <input type="text" class="form-control" id="Hostname" name="Hostname">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="env_id" class="col-lg-10 col-sm-2 control-label">环境信息</label>
+                                    <div class="col-lg-3">
+                                        <select class="form-control m-b-10" name="env_id" id="env_id">
+                                            {% for env in envs %}
+                                            <option value="{{ env.id }}"> {{ env.Envname }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Netip" class="col-lg-10 col-sm-2 control-label">内网IP</label>
+                                        <div class="col-lg-4">
+                                            <input type="text" class="form-control" id="Netip" name="Netip">
+                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Wnetip" class="col-lg-10 col-sm-2 control-label">外网IP</label>
+                                        <div class="col-lg-4">
+                                            <input type="text" class="form-control" id="Wnetip" name="Wnetip">
+                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Cpus" class="col-lg-10 col-sm-2 control-label">CPU数</label>
+                                    <div class="col-lg-4">
+                                        <input type="text" class="form-control" id="Cpus" name="Cpus">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Memtotal" class="col-lg-10 col-sm-2 control-label">内存大小(*单位是M)</label>
+                                    <div class="col-lg-4">
+                                    <input type="text" class="form-control" id="Memtotal" name="Memtotal">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                            <div class="col-lg-offset-2 col-lg-10">
+                                                <button type="submit" class="btn btn-info">提交</button>
+                                                <button type="reset" class="btn btn-info">重置</button>
+                                                <a href="/" class="btn btn-primary">返回首页</a>
+                                            </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </section>
+                </div>
+    </div>
+{% endblock %}
+{% block scripts %}
+{% endblock %}

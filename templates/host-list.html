@@ -1,0 +1,76 @@
+
+{% extends 'base.html' %}
+
+{% block stylesheet %}
+
+{% endblock %}
+
+{% block page_head %}
+   <!-- page head start-->
+            <div class="page-head">
+                <h3 class="m-b-less">
+                    主机列表
+                </h3>
+                <!--<span class="sub-title">Welcome to Static Table</span>-->
+                <div class="state-information">
+                    <ol class="breadcrumb m-b-less bg-less">
+                        <li><a href="{{ url_for('hostadmin.host_view') }}">主机列表</a></li>
+                        <li><a href="#">固定资产</a></li>
+                        <li class="active"><a href="{{ url_for('base') }}"></a>首页</li>
+                    </ol>
+                </div>
+            </div>
+            <!-- page head end-->
+{% endblock %}
+
+{% block main_content %}
+   <!--body wrapper start-->
+            <div class="wrapper">
+            <div class="row">
+            <div class="col-lg-12">
+            <section class="panel">
+            <header class="panel-heading head-border">
+                主机列表
+            </header>
+            <table class="table table-striped custom-table table-hover">
+                <thead>
+                <tr>
+                    <th>编号</th>
+                    <th><i class="fa fa-bookmark-o"></i>主机名</th>
+                    <th class="hidden-xs"><i class="fa fa-building-o"></i>内网IP</th>
+                    <th><i class="fa fa-bar-chart-o"></i>外网IP</th>
+                    <th><i class="fa fa-line-chart"></i>CPU数</th>
+                    <th><i class=" fa fa-edit"></i>内存大小</th>
+                    <th class="hidden-xs"><i class="fa fa-cogs"></i>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in items %}
+                <tr>
+
+                    <td>{{ item.id }}</td>
+                    <td><a href="#">{{ item.Hostname }}</a></td>
+                    <td class="hidden-xs">{{ item.Netip }}</td>
+                    <td>{{ item.Wnetip }}</td>
+                    <td><span class="progress progress-striped progress-xs"></span>{{ item.Cpus }} 核</td>
+                    <td><span class="label label-info label-mini"></span>{{ item.Memtotal }} M</td>
+                    <td class="hidden-xs">
+                        <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+                        <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+                        <a href="{{ url_for('hostadmin.host_del', id = item.id) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i> </a>
+                    </td>
+
+                </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            </section>
+            </div>
+            </div>
+            </div>
+    <!--body wrapper end-->
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}

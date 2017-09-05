@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block main_content %}
+<div class="row">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+        <h4>日志查看</h4>
+        </div>
+        <div class="panel-body">
+            <form action="/logget/" class="form-horizontal" method="post">
+                <div class="form-group">
+                    <label for="hostname" class="control-label col-md-2">主机名</label>
+                    <div class="col-md-6">
+                        <textarea name="hostname" class="form-control" id="hostname" cols="30" rows="10"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="service" class="control-label col-md-2">服务名</label>
+                    <div class="col-md-6">
+                        <textarea name="service" class="form-control" id="service" cols="30" rows="10"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="logname" class="control-label col-md-2">日志名</label>
+                    <div class="col-md-6">
+                        <textarea name="logname" class="form-control" id="logname" cols="30" rows="10"></textarea>
+                    </div>
+                </div>
+                <div class="col-md-offset-2">
+                         <input type="submit" class="btn btn-primary" value="查看日志">
+                         <input type="reset" class="btn btn-default" value="重填" >
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

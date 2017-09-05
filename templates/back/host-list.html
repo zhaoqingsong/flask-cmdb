@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block main_content %}
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <form action="/host_search/" class="form-inline">
+                    <input type="text" class="form-control" name="key" id="key">
+                    <input type="submit" class="btn btn-default" value="搜索" placeholder="搜索内容">
+                </form>
+            </div>
+
+            <div class="panel-body">
+                <table class="table table-hover">
+            <tr>
+                <th>#</th>
+                <th>主机名</th>
+                <th>内网地址</th>
+                <th>外网地址</th>
+                <th><a href="/host_orderby_cpu/" class="button" if >CPU数</a></th>
+                <th><a href="/host_orderby_mem/" class="button">内存值</a></th>
+            </tr>
+            {% for item in items %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.Hostname }}</td>
+                <td>{{ item.Netip }}</td>
+                <td>{{ item.Wnetip }}</td>
+                <td>{{ item.Cpus }}</td>
+                <td>{{ item.Memtotal }} M</td>
+                <td>
+                    <a href="#" class="btn btn-primary btn-xs" title="查看"><i class="fa fa-search"></i></a>
+                    <a href="#" class="btn btn-success btn-xs" title="编辑"><i class="fa fa-pencil"></i></a>
+                    <a href="#" class="btn btn-danger btn-xs" title="删除"><i class="fa fa-trash"></i></a>
+                </td>
+
+            </tr>
+            {% endfor %}
+        </table>
+                <div class="row text-center" >
+            <nav>
+              <ul class="pagination">
+                <li><a href="#">&laquo;</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">&raquo;</a></li>
+              </ul>
+        </nav>
+        </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
