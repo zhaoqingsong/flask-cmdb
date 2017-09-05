@@ -1,8 +1,11 @@
+# TODO： 建议待完成SaltApi 工具类后再进行下一步开发
+
+
 from flask import render_template
 
 from apps.api.saltapi import SaltApi
-from apps.views.hostviews.models import Hostviews, EnvViews
-from index import db
+from host import Hostviews, EnvViews
+from run import db
 
 salt_api = "https://118.190.22.229:8088/"
 username = "saltadmin"

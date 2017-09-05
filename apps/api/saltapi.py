@@ -1,5 +1,12 @@
 #!/usr/bin/env python
 # _*_ coding:utf-8 _*_
+
+
+# TODO: SaltApi 做为工具类使用
+
+
+
+
 __author__ = 'jason'
 
 salt_api = "https://118.190.22.229:8088/"

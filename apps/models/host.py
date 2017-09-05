@@ -1,4 +1,4 @@
-from index import db
+from run import db
 
 class EnvViews(db.Model):
     __tablename__ = 'envviews'

@@ -1,8 +1,10 @@
+# TODO： 建议待完成SaltApi 工具类后再进行下一步开发
+
 from flask import request, render_template, redirect, url_for
 from flask.views import MethodView
 
-from index import db
-from .models import Hostviews, EnvViews
+from host import Hostviews, EnvViews
+from run import db
 
 
 class HostlistView(MethodView):
