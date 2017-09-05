@@ -1,9 +1,8 @@
 #-*- coding:utf-8 -*-
-import json
+from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
-from api.saltapi import SaltApi
-from flask import Flask,render_template,redirect,url_for,request,g
-from flask import send_from_directory
+
+from apps.api.saltapi import SaltApi
 
 UPLOAD_FOLDER = r'./uploads/'
 ALLOWED_EXTENSIONS = ['.log']
@@ -104,11 +103,11 @@ def base():
     return render_template('index.html')
 
 #倒入主机列表视图
-from hostviews.views import hostadmin
+from apps.views.hostviews.views import hostadmin
 app.register_blueprint(hostadmin)
 
 #倒入日志查看模版
-from logsystem.views import logview
+from apps.views.logsystem.views import logview
 app.register_blueprint(logview)
 
 if __name__ == '__main__':
